@@ -11,7 +11,7 @@ app.get('/api/hello', (req, res) => {
 
 // POST a la misma ruta para recibir datos en el body
 app.post('/api/hello', (req, res) => {
-    const {name, apellido} = req.body;
+    const { name, apellido } = req.body;
     console.log(name, apellido);
     res.status(200).json({ mensaje: 'mensaje recibido' });
 });
@@ -24,7 +24,7 @@ app.post('/api/producto', (req, res) => {
     const { nombre, precio, stock } = req.body;
     console.log('Producto recibido:', { nombre, precio, stock });
     res.status(200).json({ mensaje: 'Producto enviado correctamente' });
-}); 
+});
 
 app.listen(process.env.PORT, () => {
     console.log(`Tu servidor esta corriendo en el puerto ${process.env.PORT}`);
