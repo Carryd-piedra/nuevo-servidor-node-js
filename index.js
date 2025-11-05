@@ -1,6 +1,6 @@
-const express = require('express');
-const app = express();
-require('dotenv').config();
+const express = require('express'); //Constante para importar express
+const app = express(); //Crear una instancia de express
+require('dotenv').config();   //Importar variables de entorno
 app.use(express.json());
 
 // request, response son parámetros que funcionan de la mano con HTTP

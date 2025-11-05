@@ -10,6 +10,10 @@ const sequelize = new Sequelize(
     port: process.env.DB_PORT,
     dialect: 'mysql',
     logging: false,
+    deffine: {
+      timestamps: false, //borrar campos createdAt y updatedAt
+      freetableName: true, //no pluralizar nombres de tablas
+    },
   }
 );
 
