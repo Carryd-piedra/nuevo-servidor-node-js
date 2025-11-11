@@ -3,12 +3,12 @@ const Producto = require('../models/producto.model');
 //metodo para crear un producto y guardarlo en la base de datos
 exports.crearProducto = async (req, res) => {
     try {
-        const { nombre, precio, stock, categoriaId } = req.body; 
+        const { nombre, precio, descripcion, categoriaId } = req.body; 
 
         const nuevoProducto = await Producto.create({ //definimos 
             nombre,
             precio,
-            stock,
+            descripcion,
             categoriaId 
         });
         res.status(201).json(nuevoProducto);
