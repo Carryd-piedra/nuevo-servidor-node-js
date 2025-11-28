@@ -1,19 +1,29 @@
-
-
 const express = require('express');
 const app = express();
 const sequelize = require('./config/database');
 const productoRoutes = require('./routes/producto.route');
 const categoriaRoutes = require('./routes/categoria.route');
+const loginRoutes = require('./routes/login.route');
+const verificarToken = require('./middlewares/auth.middleware');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
-
 
 require('./models/producto.model');
 require('./models/categoria.model');
-app.use(express.json());
-app.use("/api/productos", productoRoutes);
-app.use("/api/categorias", categoriaRoutes);
+require('./models/usuario.model');
 
+app.use(express.json());
+app.use(cookieParser());
+
+// Rutas públicas
+app.use("/api/auth", loginRoutes);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Rutas protegidas
+app.use("/api/productos", verificarToken, productoRoutes);
+app.use("/api/categorias", verificarToken, categoriaRoutes);
 
 async function startServer() {
     try {
@@ -32,4 +42,4 @@ async function startServer() {
     }
 }
 
-startServer(); // Llamamos a la función para iniciar
+startServer();
