@@ -1,8 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Usuario = require('../models/usuario.model');
-const generarToken = require('../models/usuario.model');
-
 // Registro de usuario
 const generarToken = (user) => {
     return jwt.sign({
@@ -112,6 +110,6 @@ exports.logout = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Error en el servidor' });
     }
-} ;
+}
 
 
