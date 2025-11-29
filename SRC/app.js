@@ -31,7 +31,7 @@ async function startServer() {
         console.log('Conexion establecida a la base de datos exitosa');
 
         // Ahora sequelize.sync() conoce el modelo Producto y creará la tabla.
-        await sequelize.sync({ alter: true });
+        await sequelize.sync();
         console.log('tablas sincronizadas');
 
         app.listen(process.env.PORT, () => {
