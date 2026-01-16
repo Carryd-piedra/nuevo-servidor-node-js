@@ -6,6 +6,9 @@ router.post('/crear', controller.crearProducto); // Endpoint para crear un nuevo
 router.get('/listar', controller.obtenerProductos); // Endpoint para obtener todos los productos
 router.put('/actualizar/:id', controller.actualizarProducto); // Endpoint para actualizar un producto existente
 router.delete('/borrar/:id', controller.eliminarProducto); // Nuevo endpoint para eliminar un producto
+router.get('/generar-reporte-local', controller.generarReporteLocal);
+router.post('/enviar-reporte-email', controller.enviarReporteEmail);
+
 
 module.exports = router;
 

@@ -1,0 +1,1 @@
+Keys: id, nombre, precio, descripcion, categoriaId

@@ -1,5 +1,5 @@
-const Producto= require('./producto.model');
-const Categoria= require('./categoria.model');
+const Producto = require('./producto.model');
+const Categoria = require('./categoria.model');
 
 //exportamos los modelos para usarlos en otras partes de la aplicacion
 //como en los controladores y rutas
