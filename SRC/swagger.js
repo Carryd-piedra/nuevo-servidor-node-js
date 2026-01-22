@@ -6,7 +6,21 @@ const doc = {
         description: 'Documentación generada automáticamente',
     },
     host: 'localhost:3000',
+    basePath: '/',
     schemes: ['http'],
+    securityDefinitions: {
+        Bearer: {
+            type: "apiKey",
+            name: "Authorization",
+            in: "header",
+            description: "Enter your bearer token in the format **Bearer &lt;token&gt;**"
+        }
+    },
+    security: [
+        {
+            Bearer: []
+        }
+    ]
 };
 
 const outputFile = './swagger-output.json';

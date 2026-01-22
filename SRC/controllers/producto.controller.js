@@ -12,13 +12,14 @@ const path = require('path');
 // =============================
 exports.crearProducto = async (req, res) => {
     try {
-        const { nombre, precio, descripcion, categoriaId } = req.body;
+        const { nombre, precio, descripcion, stock, categoriaId } = req.body;
 
 
         const nuevoProducto = await Producto.create({
             nombre,
             precio,
             descripcion,
+            stock,
             categoriaId
         });
 
@@ -36,11 +37,10 @@ exports.crearProducto = async (req, res) => {
 exports.obtenerProductos = async (req, res) => {
     try {
         const productos = await Producto.findAll({
-            include: [{
+            include: {
                 model: Categoria,
-                as: 'categoria',
-                attributes: ['id', 'nombre']
-            }]
+                as: 'categoria'
+            }
         });
 
 
